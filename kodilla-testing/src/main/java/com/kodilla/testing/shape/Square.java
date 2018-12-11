@@ -1,7 +1,5 @@
 package com.kodilla.testing.shape;
 
-import java.util.Objects;
-
 public class Square implements Shape {
     private String shapeName = "square";
     private double a = 0;
@@ -30,13 +28,20 @@ public class Square implements Shape {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Square square = (Square) o;
-        return Double.compare(square.a, a) == 0 &&
-                Objects.equals(shapeName, square.shapeName);
+
+        if (Double.compare(square.a, a) != 0) return false;
+        return shapeName != null ? shapeName.equals(square.shapeName) : square.shapeName == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shapeName, a);
+        int result;
+        long temp;
+        result = shapeName != null ? shapeName.hashCode() : 0;
+        temp = Double.doubleToLongBits(a);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }

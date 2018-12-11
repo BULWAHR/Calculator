@@ -10,29 +10,31 @@ public class ShapeCollector {
     public ShapeCollector() {
     }
 
+    public int getShapeQuantity() {
+        return listOfFigures.size();
+    }
+
     public void addFigure(Shape shape) {
         if (shape != null) {
             listOfFigures.add(shape);
         }
     }
 
-    public void removeFigure(Shape shape) {
+    public boolean removeFigure(Shape shape) {
         if (shape != null) {
             listOfFigures.remove(shape);
         }
+        return false;
     }
 
     public Shape getFigure(int n) {
-           if (n > 0 && n <= listOfFigures.size()) {
-           listOfFigures.get(n);
-        }
-    // RETURN .........
+        return listOfFigures.get(n);
     }
 
-    // TUTAJ SIĘ TROCHĘ POGUBIŁEM
+
     public void showFigures() {
-            for (String shape : ShapeCollector) {
-            System.out.println(ShapeCollector <listOfFigures>);
+            for (Shape shape : listOfFigures) {
+            System.out.println(shape.toString());
         }
     }
 }
