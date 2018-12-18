@@ -20,7 +20,7 @@ public class ShapeCollector {
         }
     }
 
-    public List<Shape> getFigures(){
+    public List<Shape> getFigures() {
         return listOfFigures;
     }
 

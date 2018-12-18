@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.*;
+import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle(2.5, 6.1);
 
+        shapeCollector.addFigure(triangle);
         Shape retrievedShape = shapeCollector.getFigure(0);
 
         Assert.assertEquals(triangle, retrievedShape);
@@ -79,5 +81,6 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(shapeCollector.getFigures(), list);
     }
 }
+
 
 
