@@ -20,6 +20,10 @@ public class ShapeCollector {
         }
     }
 
+    public List<Shape> getFigures(){
+        return listOfFigures;
+    }
+
     public boolean removeFigure(Shape shape) {
         if (shape != null) {
             listOfFigures.remove(shape);

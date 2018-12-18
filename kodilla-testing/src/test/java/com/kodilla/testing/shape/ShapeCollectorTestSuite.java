@@ -5,7 +5,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.*;
 import java.io.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ShapeCollectorTestSuite {
@@ -62,12 +63,6 @@ public class ShapeCollectorTestSuite {
     public void testShowFigures() {
         ShapeCollector shapeCollector = new ShapeCollector();
 
-        String square1 = "Square(3.5)";
-        String triangle1 = "Triangle(2.5, 6.1)";
-        String circle1 = "Circle(1.6)";
-
-        String expectedListOfFigures = String.format("%s\n%s\n%s\n", square1, triangle1, circle1);
-
         Shape square2 = new Square(3.5);
         Shape triangle2 = new Triangle(2.5, 6.1);
         Shape circle2 = new Circle(1.6);
@@ -76,13 +71,12 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(triangle2);
         shapeCollector.addFigure(circle2);
 
-        ByteArrayOutputStream temporaryString = new ByteArrayOutputStream();
-        PrintStream temporaryList = new PrintStream(temporaryString);
+        List<Shape> list = new ArrayList<>();
+        list.add(square2);
+        list.add(triangle2);
+        list.add(circle2);
 
-        shapeCollector.showFigures(temporaryList);
-        String actualListOfFigures = PrintStream.toString();
-
-        Assert.assertEquals(expectedListOfFigures, actualListOfFigures);
+        Assert.assertEquals(shapeCollector.getFigures(), list);
     }
 }
 
