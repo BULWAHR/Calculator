@@ -43,7 +43,7 @@ public class BoardTestSuite {
                 LocalDate.now().minusDays(10),
                 LocalDate.now().plusDays(25));
         Task task5 = new Task("Optimize searching",
-                "Archive data searching has to be optimized",
+                "Archive services searching has to be optimized",
                 user4,
                 user2,
                 LocalDate.now(),
