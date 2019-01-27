@@ -1,0 +1,74 @@
+create table ISSUESLISTS
+(
+    ID  serial primary key,
+    NAME varchar(50)
+    );
+
+insert into  ISSUESLISTS (NAME)
+values ("ToDo"), ("In progress"), ("Done");
+
+COMMIT;
+
+
+create table ISSUES
+(
+    ID serial primary key,
+    ISSUELIST_ID  bigint unsigned not null,
+    SUMMARY varchar(100),
+    DESCRIPTION varchar(1024),
+    USER_ID_ASSIGNEDTO bigint unsigned,
+    FOREIGN KEY(ISSUELIST_ID) references ISSUESLISTS(ID),
+    FOREIGN KEY(USER_ID_ASSIGNEDTO) references USERS(ID)
+);
+
+COMMIT;
+
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Summary 11", "Description 11", 2);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Summary 12", "Description 12", 1);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Summary 13", "Description 13", 5);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Summary 14", "Description 14", 3);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Summary 15", "Description 15", 4);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Summary 21", "Description 21", 1);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Summary 22", "Description 22", 3);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Summary 23", "Description 23", 2);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Summary 24", "Description 24", 4);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Summary 25", "Description 25", 5);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Summary 31", "Description 31", 4);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Summary 32", "Description 32", 1);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Summary 33", "Description 33", 5);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Summary 34", "Description 34", 2);
+
+insert into ISSUES (ISSUELIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Summary 35", "Description 35", 3);
+
+COMMIT;
+
+

@@ -1,0 +1,27 @@
+        select ID, FIRSTNAME from USERS
+        where (ID >= 4 and ID <=10)
+        or ID = 1;
+
+        select COUNT(*) from USERS;
+
+        select SUM(ID) as ToTaL, AVG(ID) as AVERAGE from USERS;
+
+        select U.FIRSTNAME, U.LASTNAME, P.BODY
+        from USERS U
+        join POSTS P on U.ID = P.USER_ID;
+
+        select USER_ID, count(*) as POSTS_NUMBER
+        from POSTS
+        group by USER_ID
+        having count(*) > 1;
+
+        SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER
+        FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID
+        GROUP BY P.USER_ID
+        HAVING COUNT(*) > 1;
+
+        SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER
+        FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID
+        GROUP BY P.USER_ID
+        HAVING COUNT(*) > 1
+        ORDER BY U.LASTNAME, U.FIRSTNAME;

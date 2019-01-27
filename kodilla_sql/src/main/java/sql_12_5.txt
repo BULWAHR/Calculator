@@ -1,0 +1,11 @@
+insert into POSTS (USER_ID, BODY)
+values (2, "Added post");
+
+update POSTS
+set BODY = "Changed from ADDED POST to TO DELETE"
+where ID = 7;
+
+delete from POSTS
+where ID = 7;
+
+commit;
